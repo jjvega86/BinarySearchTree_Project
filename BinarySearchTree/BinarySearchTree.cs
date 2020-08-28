@@ -15,8 +15,16 @@ namespace BinarySearchTree
             rootNode = null;
         }
 
-        public void Add()
+        public void Add(int value)
         {
+            if (rootNode == null)
+            {
+                rootNode.Data = value;
+            }
+            else if (value < rootNode.Data)
+            {
+
+            }
 
         }
 

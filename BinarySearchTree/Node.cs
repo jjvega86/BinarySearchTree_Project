@@ -10,14 +10,16 @@ namespace BinarySearchTree
     class Node
     {
         public int Data;
-        public Node leftChild;
         public Node rightChild;
+        public Node leftChild;
+  
 
         public Node(int data)
         {
             Data = data;
-            leftChild = null;
             rightChild = null;
+            leftChild = null;
+            
         }
     }
 }

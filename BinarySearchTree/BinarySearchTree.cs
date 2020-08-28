@@ -8,22 +8,28 @@ namespace BinarySearchTree
 {
     class BinarySearchTree
     {
-        public Node rootNode;
+        Node rootNode;  
 
         public BinarySearchTree()
         {
             rootNode = null;
+      
         }
 
-        public void Add(int value)
+        public void Add(Node addedNode)
         {
             if (rootNode == null)
             {
-                rootNode.Data = value;
+                rootNode = addedNode;
             }
-            else if (value < rootNode.Data)
+            else if (addedNode.Data < rootNode.Data)
             {
-
+                rootNode.leftChild = addedNode;
+                
+            }
+            else if (addedNode.Data > rootNode.Data)
+            {
+                rootNode.rightChild = addedNode;
             }
 
         }

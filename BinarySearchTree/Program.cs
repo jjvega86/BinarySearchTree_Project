@@ -11,8 +11,13 @@ namespace BinarySearchTree
         static void Main(string[] args)
         {
             BinarySearchTree tree = new BinarySearchTree();
-            Node node1 = new Node(1);
-            tree.Add(node1);
+            tree.Add(1);
+            tree.Add(2);
+            tree.Add(3);
+            tree.Add(4);
+            tree.Add(5);
+            tree.Add(6);
+            tree.Add(7);
         }
     }
 }

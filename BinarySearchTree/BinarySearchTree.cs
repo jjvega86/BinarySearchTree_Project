@@ -8,32 +8,121 @@ namespace BinarySearchTree
 {
     class BinarySearchTree
     {
-        Node Root { get; set; }
+        Node Root;
 
-        public void Add(int data)
+        public BinarySearchTree()
         {
-            Node newNode = new Node();
-            newNode.Data = data;
+            Root = null;
+        }
 
-
+        public void Add(Node nodeToAdd)
+        {
             if (Root == null)
             {
-                Root = newNode;
+                Root = nodeToAdd;
             }
-            else if (newNode.Data < Root.Data)
-            {
-                Root.LeftChild = newNode;
-                
-            }
-            else if (newNode.Data > Root.Data)
-            {
-                Root.RightChild = newNode;
+            else
+            {              
+                Node currentNode = Root;
+                while (true)
+                {
+                    if (nodeToAdd.Data < currentNode.Data)
+                    {
+                        if(currentNode.LeftChild == null)
+                        {
+                            currentNode.LeftChild = nodeToAdd;
+                            break;
+                        }
+                        else
+                        {
+                            currentNode = currentNode.LeftChild;
+                        }
+                       
+                    }
+                    else if (nodeToAdd.Data > currentNode.Data)
+                    {
+                        if (currentNode.RightChild == null)
+                        {
+                            currentNode.RightChild = nodeToAdd;
+                            break;
+
+                        }
+                        else
+                        {
+                            currentNode = currentNode.RightChild;
+                        }
+                    }
+
+                }
+
             }
 
         }
 
-        public void Search()
+        public void Search(int value)
         {
+            bool containsValue = false;
+
+            if (Root.Data == value)
+            {
+                containsValue = true;
+            }
+            else
+            {
+                Node currentNode = Root;
+
+                while (true)
+                {
+                    if (value < currentNode.Data)
+                    {
+                        if (currentNode.LeftChild == null)
+                        {                         
+                            break;
+                        }
+                        else if (currentNode.LeftChild.Data == value)
+                        {
+                            containsValue = true;
+                            break;
+                        }
+                        else
+                        {
+                            currentNode = currentNode.LeftChild;
+                        }
+
+                    }
+                    else if (value > currentNode.Data)
+                    {
+                        if (currentNode.RightChild == null)
+                        {
+                            break;
+
+                        }
+                        else if (currentNode.RightChild.Data == value)
+                        {
+                            containsValue = true;
+                            break;
+                        }
+                        else
+                        {
+                            currentNode = currentNode.RightChild;
+                        }
+                    }
+
+
+                }
+            }
+           
+            if (containsValue == true)
+            {
+                Console.WriteLine("Your value is in this tree!");
+            }
+            else
+            {
+                Console.WriteLine("Your value is not in this tree!");
+            }
+
+
+          
 
         }
     }

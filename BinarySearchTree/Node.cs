@@ -13,7 +13,10 @@ namespace BinarySearchTree
         public Node RightChild { get; set; }
         public Node LeftChild { get; set; }
 
-
+        public Node(int data)
+        {
+            Data = data;
+        }
 
     }
 }
